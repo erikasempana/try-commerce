@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function FallbackImage({ src, alt, width, height }) {
+export default function FallbackImage({ src, alt, width, height, className="h-48 rounded shadow object-cover" }) {
   const [imgSrc, setImgSrc] = useState(src);
 
   return (
@@ -12,7 +12,7 @@ export default function FallbackImage({ src, alt, width, height }) {
       width={width}
       height={height}
       onError={() => setImgSrc("/default.png")} 
-      className="rounded shadow"
+      className={className}
     />
   );
 }
