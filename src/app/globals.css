@@ -24,3 +24,10 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.ellipsis {
+  white-space: nowrap;        /* Jangan ganti baris */
+  overflow: hidden;           /* Sembunyikan yang kelebihan */
+  text-overflow: ellipsis;    /* Tambahkan "..." */
+  max-width: 200px;           /* Atur lebar maksimal */
+}

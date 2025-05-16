@@ -1,103 +1,84 @@
-import Image from "next/image";
+'use client'
+// import Image from "next/image";
+import { useState, useEffect } from "react";
+import FallbackImage from "@/components/FallbackImage";
+import Pagination from "@/components/Pagination";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentProducts = products.slice(startIndex, startIndex + itemsPerPage);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  function handlePageChange(page) {
+    setCurrentPage(page);
+  }
+  async function getProduct(){
+    try {
+      const response = await fetch('https://api.escuelajs.co/api/v1/products');
+      const result = await response.json();
+      setProducts(result);
+      return 'Success get products';
+    } catch (error) {
+      return error;
+    }
+  }
+
+  async function getCategories() {
+    try {
+      const response = await fetch('https://api.escuelajs.co/api/v1/categories');
+      const result = await response.json();
+      setCategories(result);
+      console.log({result})
+    } catch (error) {
+      return error;
+    }
+  }
+
+  useEffect(() => {
+    getProduct().then(res=>console.log(res)).then(err=>console.log(err))
+    getCategories().then(res=>console.log(res)).then(err=>console.log(err))
+  }, [])
+  return (
+    <div >
+      <div className="w-[850px] mb-10 -mt-10 -pt-5">
+        <div className="text-xl font-bold text-black pb-2">Category</div>
+        <div className="w-[850px] space-x-3 overflow-x-auto whitespace-nowrap" >
+          {categories &&
+            categories.map((category, index)=>(
+            <button className="border-1 rounded-lg text-black hover:bg-blue-500 w-[150px]" key={category.id}>{category.name}</button>
+            ))    
+          }
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+      
+      <div className="grid grid-cols-3 gap-14">      
+        { currentProducts &&
+        currentProducts.map((o,i)=> (
+          <div className="w-50 h-70 shadow-sm rounded-lg m-auto curcursor-pointersor" key={o.id}>
+            <FallbackImage src={o.images[0]} width={200} height={120} alt='product'/>
+            <div className="p-2 text-black">
+              <div className="text-lg font-bold text-left ellipsis">{o.title}</div>
+              <div className="text-red-500 text-md">{'$ '+ o.price}</div>
+              <div className="text-xs text-slate-600">category: {o.category.name}</div>
+            </div>
+          </div>
+        ))
+        }
+      </div>
+      {currentPage &&
+      (
+      <div className="mt-8">
+        <Pagination
+          totalPages={totalPages}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
+      </div>
+      )}
     </div>
   );
 }
