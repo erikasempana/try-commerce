@@ -18,6 +18,18 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'static6.depositphotos.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'example.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'test.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'pravatar.cc',
+      },
     ],
   },
 };
