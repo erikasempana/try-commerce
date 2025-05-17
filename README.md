@@ -23,6 +23,7 @@ E-commerce simple project built with Next.js.
 ## 📸 Tampilan
 
 ### 🏠 Beranda
+<<<<<<< HEAD
 ![Product List](./public/product-list)
 
 ### 🔍 Detail Produk
@@ -36,6 +37,24 @@ E-commerce simple project built with Next.js.
 
 ### ♻️ Infinite Pagination
 ![Pagination](./public/handle-inifity-pagination)
+=======
+![Product List](./public/product-list.png)
+
+### 🔍 Detail Produk
+![Detail](./public/detail-product.png)
+
+### 🧹 Produk Tidak Ditemukan
+![Empty State](./public/empty-product.png)
+
+### 🧹 Default Picture
+![Empty State](./public/handle-pict-default.png)
+
+### 🧭 Filter Kategori
+![Filter](./public/filter-category.png)
+
+### ♻️ Infinite Pagination
+![Pagination](./public/handle-infity-pagination.png)
+>>>>>>> 406bd3c237e00503825f9b2ac289e13a99642eba
 
 ---
 
