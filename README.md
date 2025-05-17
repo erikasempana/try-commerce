@@ -1,37 +1,140 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🛍️ Next.js Product Listing App
 
-## Getting Started
+Aplikasi katalog produk sederhana menggunakan **Next.js** , **TailwindCSS**, dan [Fake Store API (escuelajs)](https://api.escuelajs.co/).
 
-First, run the development server:
+# Try Commerce
+
+E-commerce simple project built with Next.js.
+
+🔗 **Live Demo**: [try-commerce-five.vercel.app](https://try-commerce-five.vercel.app)
+
+---
+
+## ✨ Fitur
+
+- Menampilkan produk dari API
+- Infinite scroll (Load More)
+- Filter berdasarkan rentang harga
+- Gambar dengan fallback otomatis
+- Responsif dan minimalis
+
+---
+
+## 📸 Tampilan
+
+### 🏠 Beranda
+![Product List](./public/product-list)
+
+### 🔍 Detail Produk
+![Detail](./public/detail-product)
+
+### 🧹 Produk Tidak Ditemukan
+![Empty State](./public/empty-product)
+
+### 🧭 Filter Kategori
+![Filter](./public/filter-category)
+
+### ♻️ Infinite Pagination
+![Pagination](./public/handle-inifity-pagination)
+
+---
+
+## 🚀 Cara Menjalankan Project
+
+### 1. Clone Repo
+
+```bash
+https://github.com/erikasempana/try-commerce.git
+cd try-commerce
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+# atau
+yarn install
+```
+
+### 3. Jalankan di Lokal
 
 ```bash
 npm run dev
-# or
+# atau
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Akses `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Build Production
 
-## Learn More
+```bash
+npm run build
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+Atau deploy ke [Vercel](https://vercel.com).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔧 Konfigurasi Gambar
 
-## Deploy on Vercel
+```js
+// next.config.mjs
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.imgur.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'placeimg.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'static6.depositphotos.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'example.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'test.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'pravatar.cc',
+      },
+    ],
+  },
+};
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+export default nextConfig;
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# try-commerce
+---
+
+## 📁 Struktur Folder
+
+```
+/src
+  /app
+    page.js
+/components
+```
+
+---
+
+## 🙋‍♀️ Dibuat Oleh
+
+> Dibuat dengan penuh semangat oleh **Erika Sempana**  
+> _“A mini showcase project to explore Next.js 14 & Tailwind.”_

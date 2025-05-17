@@ -20,11 +20,12 @@ export default function Footer(){
     getQuotes().then(res=>console.log(res)).catch(err=>console.log(err));
   }, [])
   return (
-    <footer className=" items-center justify-center px-32 py-3 m-auto sticky bottom-0 z-50 bg-black h-14">
+    <footer className=" items-center justify-center px-32 py-3 m-auto sticky bottom-0 z-50 bg-black min-h-14">
     <div className="text-white text-center">
       <p className="font-bold text-md italic"> {quotes.quote} </p>
       <p className="text-white text-center">{quotes.author ? ('by : ' + quotes.author) : ''}</p>
     </div>
+    <div className="text-white text-center text-xs pt-2">-- Erika Sempana --</div>
   </footer>
   )
 }
