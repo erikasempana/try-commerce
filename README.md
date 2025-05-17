@@ -23,38 +23,22 @@ E-commerce simple project built with Next.js.
 ## 📸 Tampilan
 
 ### 🏠 Beranda
-<<<<<<< HEAD
-![Product List](./public/product-list)
+![Product List](./public/product-list.png "Ukuran: 500 KB")
 
 ### 🔍 Detail Produk
-![Detail](./public/detail-product)
+![Detail](./public/detail-product.png  "Ukuran: 500 KB")
 
 ### 🧹 Produk Tidak Ditemukan
-![Empty State](./public/empty-product)
-
-### 🧭 Filter Kategori
-![Filter](./public/filter-category)
-
-### ♻️ Infinite Pagination
-![Pagination](./public/handle-inifity-pagination)
-=======
-![Product List](./public/product-list.png)
-
-### 🔍 Detail Produk
-![Detail](./public/detail-product.png)
-
-### 🧹 Produk Tidak Ditemukan
-![Empty State](./public/empty-product.png)
+![Empty State](./public/empty-product.png  "Ukuran: 500 KB")
 
 ### 🧹 Default Picture
-![Empty State](./public/handle-pict-default.png)
+![Empty State](./public/handle-pict-default.png  "Ukuran: 500 KB")
 
 ### 🧭 Filter Kategori
-![Filter](./public/filter-category.png)
+![Filter](./public/filter-category.png  "Ukuran: 500 KB")
 
 ### ♻️ Infinite Pagination
-![Pagination](./public/handle-infity-pagination.png)
->>>>>>> 406bd3c237e00503825f9b2ac289e13a99642eba
+![Pagination](./public/handle-infity-pagination.png  "Ukuran: 500 KB")
 
 ---
 
